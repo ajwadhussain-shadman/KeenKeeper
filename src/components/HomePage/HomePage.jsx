@@ -3,7 +3,7 @@ import Banner from './banner';
 
 const HomePage = () => {
     return (
-        <div>
+        <div className='bg-[#F8FAFC]'>
        <Banner></Banner>
         </div>
     );
