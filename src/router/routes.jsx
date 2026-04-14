@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from "../layout/RootLayout";
 import TimeLine from "../components/TimeLine/TimeLine";
 import HomePage from "../components/HomePage/HomePage";
+import FriendCardDetail from "../components/shared/FriendCardDetail";
 
 export const router=createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router=createBrowserRouter([
             {
                 path:'/stats',
                 element: <h2>Hello stats</h2>
+            },
+            {
+                path:'/Friends/:id',
+                element:<FriendCardDetail></FriendCardDetail>
             }
         ]
     }
