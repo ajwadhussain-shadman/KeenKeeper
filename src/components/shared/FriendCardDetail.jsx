@@ -5,9 +5,7 @@ import { PiBellSimpleZBold } from 'react-icons/pi';
 import { FiArchive } from 'react-icons/fi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { LuMessageSquareMore, LuPhoneCall, LuVideo } from 'react-icons/lu';
-import callImg from '../../assets/call.png'
-import textImg from '../../assets/text.png'
-import videoImg from '../../assets/video.png'
+
 import { TbPhoneCall } from 'react-icons/tb';
 import { FriendsTimelineContext } from '../context/FriendsTimelineContext';
 const FriendCardDetail = () => {
