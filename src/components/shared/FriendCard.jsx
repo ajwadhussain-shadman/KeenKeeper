@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const FriendCard = ({friend}) => {
-    console.log(friend)
+    
     return (
         <Link to={`/Friends/${friend.id}`} className='p-6 text-center flex items-center flex-col gap-3 shadow bg-white rounded-lg'>
             <img src={friend.picture} className='max-w-[80px] rounded-full' alt="" />

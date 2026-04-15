@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router';
 import useFriendsData from '../hook/useFriendsData';
 import { PiBellSimpleZBold } from 'react-icons/pi';
 import { FiArchive } from 'react-icons/fi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { LuPhoneCall } from 'react-icons/lu';
+import { LuMessageSquareMore, LuPhoneCall, LuVideo } from 'react-icons/lu';
 import callImg from '../../assets/call.png'
 import textImg from '../../assets/text.png'
 import videoImg from '../../assets/video.png'
+import { TbPhoneCall } from 'react-icons/tb';
+import { FriendsTimelineContext } from '../context/FriendsTimelineContext';
 const FriendCardDetail = () => {
     const { id } = useParams();
     const { friends, loading } = useFriendsData();
-
+    const{ friendsTimeline,addToTimeline}=useContext(FriendsTimelineContext);
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -83,17 +85,17 @@ const FriendCardDetail = () => {
                 
                 <div className='col-span-3 row-span-1 bg-white shadow rounded-lg p-6'>
                          <h2 className='text-xl text-[#244D3F] font-medium'>Quick Check-In</h2>
-                         <div className='mt-4 flex justify-between items-center gap-4'>
-                                <div className='p-4 w-[187px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
-                               <img src={callImg} className='w-[32px]' alt="" />
+                         <div className='mt-4 flex md:flex-row flex-col justify-between items-center gap-4'>
+                                <div  onClick={() => addToTimeline("call", friend.name)} className='p-4 btn h-full w-full md:w-[160px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
+                              <TbPhoneCall className='text-3xl' />
                               <p className='text-xl'>Call</p>
                              </div>
-                                <div className='p-4 w-[187px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
-                               <img src={textImg} className='w-[32px]' alt="" />
+                                <div  onClick={() => addToTimeline("text", friend.name)} className='p-4 btn h-full w-full md:w-[160px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
+                               <LuMessageSquareMore className='text-3xl' />
                               <p className='text-xl'>Text</p>
                              </div>
-                                <div className='p-4 w-[187px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
-                               <img src={videoImg} className='w-[32px]' alt="" />
+                                <div  onClick={() => addToTimeline("video", friend.name)} className='btn h-full p-4 w-full md:w-[160px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
+                               <LuVideo className='text-3xl' />
                               <p className='text-xl'>Video</p>
                              </div>
                             

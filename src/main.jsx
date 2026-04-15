@@ -4,9 +4,13 @@ import './index.css'
 import App from './App.jsx'
 import { RouterProvider } from 'react-router'
 import { router } from './router/routes.jsx'
+import FriendsTimelineProvider from './components/context/FriendsTimelineProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <FriendsTimelineProvider>
+      <RouterProvider router={router} />
+    </FriendsTimelineProvider>
+     
   </StrictMode>,
 )
