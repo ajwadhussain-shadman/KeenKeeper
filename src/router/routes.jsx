@@ -3,6 +3,7 @@ import RootLayout from "../layout/RootLayout";
 import TimeLine from "../components/TimeLine/TimeLine";
 import HomePage from "../components/HomePage/HomePage";
 import FriendCardDetail from "../components/shared/FriendCardDetail";
+import Stats from "../components/stats/Stats";
 
 export const router=createBrowserRouter([
     {
@@ -19,7 +20,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/stats',
-                element: <h2>Hello stats</h2>
+                element:<Stats></Stats>
             },
             {
                 path:'/Friends/:id',

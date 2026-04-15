@@ -1,4 +1,4 @@
-import React, { act, useContext } from 'react';
+import React, { act, useContext, useState } from 'react';
 import { FriendsTimelineContext } from '../context/FriendsTimelineContext';
 import callImg from '../../assets/call.png'
 import textImg from '../../assets/text.png'
@@ -11,12 +11,22 @@ const pressedAction = {
 
 const TimeLine = () => {
     const { friendsTimeline, addToTimeline } = useContext(FriendsTimelineContext);
+     const [filter,setFilter]=useState('all');
+     const NewTimeLine=filter=="all"?friendsTimeline:friendsTimeline.filter(friend=>friend.action==filter);
     console.log(friendsTimeline);
     return (
         <div className='bg-[#F8FAFC] min-h-screen'>
             <div className='md:w-3/4 w-11/12 mx-auto py-[80px] space-y-6'>
+                <h2 className='text-[#1F2937] text-3xl md:text-5xl font-bold'>Timeline</h2>
+                <select defaultValue="Pick a color" className="select text-[#64748B]">
+                    <option disabled={true}>Filter timeline</option>
+                    <option onClick={()=>setFilter('all')}>all</option>
+                    <option  onClick={()=>setFilter('call')}>call</option>
+                    <option  onClick={()=>setFilter('text')}>text</option>
+                    <option  onClick={()=>setFilter('video')}>video</option>
+                </select>
                 {
-                    friendsTimeline.map(friend => {
+                    NewTimeLine.map(friend => {
                         const action = pressedAction[friend.action];
                         return (
                             <div className='bg-white p-4 rounded-lg flex gap-4'>
