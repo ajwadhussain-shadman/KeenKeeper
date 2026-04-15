@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Pie, PieChart } from 'recharts';
+import { Legend, Pie, PieChart, Tooltip } from 'recharts';
 import { FriendsTimelineContext } from '../context/FriendsTimelineContext';
 
 
@@ -21,8 +21,13 @@ const Stats = () => {
   { name: 'video', value: actionLength('video'), fill: '#37A163' }
 ];
     return (
-        <div>
-           <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 1 }} responsive>
+        <div className='bg-[#F8FAFC] min-h-screen'>
+            <div className=' py-[80px] md:w-3/4 w-11/12 mx-auto'>
+            <h1 className='text-[#1F2937] font-bold md:text-5xl text-3xl'>Friendship Analytics</h1>
+            
+           <div className='bg-white mt-6 p-8 space-y-6'>
+            <h2 className='text-[#244D3F] text-xl font-medium'>By Interaction Type</h2>
+             <PieChart style={{ width: '100%', maxWidth: '347px', maxHeight: '80vh', aspectRatio: 1 ,margin:'auto'}} responsive>
       <Pie
         data={data}
         innerRadius="80%"
@@ -35,8 +40,12 @@ const Stats = () => {
         dataKey="value"
         isAnimationActive={true}
       />
-    
+      <Tooltip></Tooltip>
+        <Legend></Legend>
     </PieChart>
+           </div>
+
+        </div>
         </div>
     );
 };
