@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { toast } from 'react-toastify';
 
 const FriendCard = ({friend}) => {
     
     return (
-        <Link to={`/Friends/${friend.id}`} className='p-6  text-center flex items-center flex-col gap-3 shadow bg-white rounded-lg'>
+        <Link to={`/Friends/${friend.id}`} onClick={()=>{toast(`${friend.name} Details`)}} className='p-6  text-center flex items-center flex-col gap-3 shadow bg-white rounded-lg'>
             <img src={friend.picture} className='max-w-[80px] rounded-full' alt="" />
             <div>
                 <h2 className='font-semibold text-xl text-[#1F2937]'>{friend.name}</h2>
