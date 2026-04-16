@@ -26,7 +26,7 @@ const TimeLine = () => {
                     <option  onClick={()=>setFilter('video')}>video</option>
                 </select>
                 {
-                    NewTimeLine.map(friend => {
+                 NewTimeLine.length===0 ? (<div className='flex justify-center items-center mt-10 bg-white shadow rounded-lg p-10'><h2 className='text-3xl font-bold'>No Activity found</h2></div>) :(  NewTimeLine.map(friend => {
                         const action = pressedAction[friend.action];
                         return (
                             <div className='bg-white p-4 rounded-lg flex gap-4'>
@@ -39,7 +39,9 @@ const TimeLine = () => {
                                 </div>
                             </div>
                         )
-                    })
+                    }))
+
+                  
                 }
             </div>
         </div>

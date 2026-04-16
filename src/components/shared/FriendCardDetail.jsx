@@ -8,12 +8,16 @@ import { LuMessageSquareMore, LuPhoneCall, LuVideo } from 'react-icons/lu';
 
 import { TbPhoneCall } from 'react-icons/tb';
 import { FriendsTimelineContext } from '../context/FriendsTimelineContext';
+import { PacmanLoader } from 'react-spinners';
+import { toast } from 'react-toastify';
 const FriendCardDetail = () => {
     const { id } = useParams();
     const { friends, loading } = useFriendsData();
     const{ friendsTimeline,addToTimeline}=useContext(FriendsTimelineContext);
     if (loading) {
-        return <p>Loading...</p>;
+        return <div className='flex items-center col-span-4 justify-center'>
+                        <PacmanLoader color="#244D3F" />
+                    </div>;
     }
 
     const friend = friends.find(fr => fr.id === Number(id));
@@ -92,7 +96,11 @@ const FriendCardDetail = () => {
                                <LuMessageSquareMore className='text-3xl' />
                               <p className='text-xl'>Text</p>
                              </div>
-                                <div  onClick={() => addToTimeline("video", friend.name)} className='btn h-full p-4 w-full md:w-[160px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
+                                <div  onClick={() =>{
+                                    return(
+                                         addToTimeline("video", friend.name)
+                                    )
+                                }} className='btn h-full p-4 w-full md:w-[160px] flex flex-col items-center bg-[#F8FAFC] rounded-lg gap-2 text-[#1F2937]'>
                                <LuVideo className='text-3xl' />
                               <p className='text-xl'>Video</p>
                              </div>

@@ -1,5 +1,6 @@
 import React, { act, useState } from 'react';
 import { FriendsTimelineContext } from './FriendsTimelineContext';
+import { toast } from 'react-toastify';
 
 const FriendsTimelineProvider = ({children}) => {
      const [friendsTimeline,setFriendsTimeline]=useState([]);
@@ -11,7 +12,8 @@ const FriendsTimelineProvider = ({children}) => {
             name,
             date:currentDate,
          }    ;
-         setFriendsTimeline([newTimeline,...friendsTimeline])    
+         setFriendsTimeline([newTimeline,...friendsTimeline])  
+         action==='video'? toast.success(`${action} calling ${name}`):toast.success(`${action}ing ${name}`)  
        }
 
      const data={

@@ -25,8 +25,11 @@ const Stats = () => {
       <div className=' py-[80px] md:w-3/4 w-11/12 mx-auto'>
         <h1 className='text-[#1F2937] font-bold md:text-5xl text-3xl'>Friendship Analytics</h1>
 
-        <div className='bg-white mt-6 p-8 space-y-6'>
-          <h2 className='text-[#244D3F] text-xl font-medium'>By Interaction Type</h2>
+        <div className='bg-white mt-6 p-8 rounded-lg'>
+
+          {friendsTimeline.length==0 ? (<div className='flex justify-center items-center'><h2 className='text-3xl font-bold '>No data available</h2></div>):
+          (<div className='space-y-6'>
+            <h2 className='text-[#244D3F] text-xl font-medium'>By Interaction Type</h2>
           <PieChart style={{ width: '100%', maxWidth: '347px', maxHeight: '80vh', aspectRatio: 1, margin: 'auto' }} responsive>
             <Pie
               data={data}
@@ -48,6 +51,8 @@ const Stats = () => {
               wrapperStyle={{ paddingTop: "20px" }}
             />
           </PieChart>
+          </div>)}
+          
         </div>
 
       </div>
